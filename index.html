@@ -3,13 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
     <title>GitHub API</title>
 </head>
 <body>
-    <input id="username" type="text">
-    <button id="findUser">Buscar usuário</button>
+    <header>
+        <div id="headerDiv">
+            <div><img id="octocat" src="./imagens/octocat.png"></div>
+
+            <div>
+                <input id="username" type="text">
+                <button id="findUser">Search user</button>
+            </div>
+    
+            <div>
+                <h1 id="title">ResiliaGit</h1>
+            </div>
+        </div>
+    </header>
+
 
     <div id="userInfo"></div>
+
+    <footer>
+        <p>A project made by <a href="https://github.com/giuliabriao">Giulia Briao</a></p>
+    </footer>
 
 
     <script src="models/UserModel.js"></script>

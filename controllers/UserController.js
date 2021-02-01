@@ -1,10 +1,10 @@
 class UserController{
 
     searchUser(login){
-        let userModel = new UserModel();
+        let userModel = new UserModel(); //instanciando o Model do usuário
         userModel.getUserData(login);
 
-        let userView = new UserView(userModel);
+        let userView = new UserView(userModel); //instanciando a View do usuário
         let userInfoDiv = document.querySelector("#userInfo");
         userView.render(userInfoDiv);
     }

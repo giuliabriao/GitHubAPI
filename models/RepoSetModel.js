@@ -1,6 +1,6 @@
 class RepoSetModel{
     constructor(){
-        this._repo_set = []
+        this._repo_set = [];
     };
 
     get repo_set(){
