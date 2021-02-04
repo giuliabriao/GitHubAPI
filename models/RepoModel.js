@@ -16,4 +16,4 @@ class RepoModel{
     get language(){
         return this._language;
     }
-}
+};

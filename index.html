@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <title>GitHub API</title>
 </head>
+
 <body>
     <header>
         <div id="headerDiv">
@@ -16,27 +18,36 @@
                 <input id="username" type="text" placeholder="Write a valid username...">
                 <button id="findUser">Search user</button>
             </div>
-    
+
             <div>
                 <h1 id="title">ResiliaGit</h1>
             </div>
         </div>
     </header>
 
+    <main>
+        <span id="error"></span>
+        <div id="totalInfos">
+            <div id="userInfo"></div>
+        
+            <div id="reposInfo">
+                <ul id="repositories"></ul>
+            </div>
+        </div>
+    </main>
 
-    <div id="userInfo"></div>
-
-    <footer>
+    <footer id="footer">
         <p>A project made by <a href="https://github.com/giuliabriao">Giulia Briao</a></p>
     </footer>
 
 
     <script src="models/UserModel.js"></script>
     <script src="views/UserView.js"></script>
-    <script src="controllers/UserController.js"></script>
+    <script src="controllers/GitHubController.js"></script>
     <script src="./models/RepoModel.js"></script>
     <script src="./models/RepoSetModel.js"></script>
     <script src="./controllers/ReposController.js"></script>
     <script src="./views/ReposView.js"></script>
 </body>
+
 </html>

@@ -1,20 +1,25 @@
-class UserController{
+class GitHubController{
 
     searchUser(login){
         let userModel = new UserModel(); //instanciando o Model do usuário
         userModel.getUserData(login);
 
         let userView = new UserView(userModel); //instanciando a View do usuário e passando como parametro a Model instanciada acima
-        let userInfoDiv = document.querySelector("#userInfo");
-        userView.render(userInfoDiv);
+        userView.renderUser();
+
+        let repoSetModel = new RepoSetModel(); //in
+        repoSetModel.getReposData(login);
+
+        let reposView = new ReposView(repoSetModel);
+        reposView.renderRepos();
     }
 };
 
-let userController = new UserController();
+let gitHubController = new GitHubController();
 
 let inputUsername = document.querySelector("#username");
 
 let button = document.querySelector("#findUser")
 button.addEventListener("click", () => {
-    userController.searchUser(inputUsername.value);
+    gitHubController.searchUser(inputUsername.value);
 });

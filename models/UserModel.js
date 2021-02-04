@@ -2,8 +2,7 @@ class UserModel{
     constructor(){
         this._name = "";
         this._avatar_url = "";
-        this._bio = "";
-        this._repos = [];
+        this._bio = "" || "Oops, this user doesn't have a bio.";
     }
 
     get name(){
@@ -18,9 +17,6 @@ class UserModel{
         return this._bio;
     }
 
-    get repos(){
-        return this._repos;
-    }
 
     getUserData(login){
 
@@ -28,26 +24,25 @@ class UserModel{
 
         let request = new XMLHttpRequest();
 
-        let repoSetModel = new RepoSetModel();
-
 	    request.open("GET", url, false);
 
         request.addEventListener("load", () => {
 
             if(request.status == 200){
+                document.querySelector("#error").innerHTML = "";
+                
                 let response = JSON.parse(request.responseText);
 
-                this._name = response.name;
+                this._name = response.name || "Null Name";
                 this._avatar_url = response.avatar_url;
-                this._bio = response.bio;
-
-                repoSetModel.getReposData(login)
-
-                this._repos.push(repoSetModel.repo_set())
+                this._bio = response.bio || "This user doesn't have a bio";
+                
+            }else{
+                let error = document.querySelector("#error");
+                error.innerHTML = "Oops, I think this username doesn't exist! Try again!"
 
             }
         });
-
         request.send();
     }
-}
+};

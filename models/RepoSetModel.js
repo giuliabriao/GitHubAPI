@@ -4,13 +4,13 @@ class RepoSetModel{
     };
 
     get repo_set(){
-        return this.repo_set
+        return this._repo_set
     }
 
-    getReposData(username){
+    getReposData(login){
         let request = new XMLHttpRequest();
 
-        request.open("GET", `https://api.github.com/users/${username}/repos`, false);
+        request.open("GET", `https://api.github.com/users/${login}/repos`, false);
         
         request.addEventListener("load", () => {
             if(request.status == 200){
@@ -26,4 +26,4 @@ class RepoSetModel{
 
         request.send();
     }
-}
+};
